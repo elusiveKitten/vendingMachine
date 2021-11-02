@@ -1,0 +1,79 @@
+Nouns - Classes & Properties
+----------------------------
+Product Class 
+
+-Name
+-Price
+-Slot location in the machine 
+-all start at max (5) items 
+-output message (virtual)
+
+Chip Items : Product Class + msg "Crunch Crunch, Yum!" (override)
+
+Candy Items : Product Class + msg "Munch Munch, Yum!" (override)
+
+Drink Items : Product Class + msg "Glug Glug, Yum!" (override)
+
+Gum Items : Product Class + msg "Crunch Crunch, Yum!" (override)
+
+
+
+
+User Interface Class
+
+Display Class
+-Main Menu display ----Stocked via input file. Automatically restocks every time application is run (look @ PlayGame() in QuizMaker)
+(1) Display Vending Machine Items
+-presents user with list of all items & quantity remaining
+
+
+(2) Purchase()
+Separate Menu 
+	*1) Feed Money 
+	- prompt them to feed money (only valid whole $ amounts)
+	-Displays current money provided 
+	-insufficient funds exception 
+	-writes a line to the Log.txt - -in format of Date Time AM/PM Action Money(put in) Money (total)
+
+
+	*2) select product (loops til they hit 3 to finish transaction) () if else loops 
+	-shows list of available products (pipe delimited list)
+	-verify they fed enough money in, if not prompt for more
+	-if slot code doesn't exist, inform customer and return to purchase menu
+	-if slot code is sold out, inform and return to purchase menu
+	-if valid choice - it is dispensed
+	-writes a line to the Log.txt - for purchase format Date Time Am/PM Item/Slot location Money(total) Money(remaining)
+
+	Dispense()
+	-prints out item name, cost, money remaining and a message (different for item types)
+	-updates the balance remaining of items  (quantity change)
+	-update current money provided ($$$)
+
+
+	*3)finish transaction ()
+	-returns change in least amount of coins possible (largest to smallest coins)
+	-machine's current balance must be updated to $0 remaining
+	-writes a line to the Log.txt -in format of Date Time AM/PM Action Money(put in) Money (total)
+	-Go back to main menu 
+
+(3) Exit
+----if not a valid option, redisplay main menu 
+Close Program ()
+
+
+-----------------------------------------------------------------------------------
+
+
+
+-Unit Testing for program
+
+
+
+
+Sales Report (optional) - pipe delimited 
+Hidden option 4 (private set) 
+-writes total sales since machine was started
+Format:
+Item | total # sold life of machine
+
+@ bottom total sales $$
